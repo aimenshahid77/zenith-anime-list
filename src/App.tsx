@@ -18,6 +18,7 @@ import CollectionDetailPage from "./components/pages/CollectionDetailPage";
 import LoginPage from "./components/pages/LoginPage";
 import SignupPage from "./components/pages/SignupPage";
 
+
 function App() {
   const router = createBrowserRouter([
     {
