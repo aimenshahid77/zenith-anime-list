@@ -10,6 +10,7 @@ interface AnimeSectionProps {
   viewAllLink: string;
   animeList: Anime[];
   isLoading: boolean;
+  mediaType: "anime" | "manga";
 }
 
 const AnimeSection = ({
@@ -19,6 +20,7 @@ const AnimeSection = ({
   viewAllLink,
   animeList,
   isLoading,
+  mediaType,
 }: AnimeSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   return (
@@ -68,7 +70,7 @@ const AnimeSection = ({
               ))
             : animeList?.map((anime) => (
                 <div key={anime.mal_id} className="snap-start shrink-0">
-                  <AnimeCard anime={anime} />
+                  <AnimeCard anime={anime} mediaType={mediaType} />
                 </div>
               ))}
         </div>

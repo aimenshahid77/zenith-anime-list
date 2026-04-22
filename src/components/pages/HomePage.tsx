@@ -1,19 +1,14 @@
 import { useHomeData } from "@/hooks/useAnime";
 import AnimeSection from "../features/home/AnimeSection";
-import { Flame, BookOpen, Calendar } from "lucide-react"
+import { Flame, BookOpen, Calendar } from "lucide-react";
 import HeroBanner from "../features/home/HeroBanner";
 
 function HomePage() {
   const { topAnime, topManga, currentlyAiring } = useHomeData();
-  
-
-
 
   return (
     <div className="pt-18.5 pb-8">
-      {topAnime.data?.data[0] && (
-        <HeroBanner anime={topAnime.data.data[0]} />
-      )}
+      {topAnime.data?.data[0] && <HeroBanner anime={topAnime.data.data[0]} />}
       <AnimeSection
         title="Currently Airing"
         icon={Calendar}
@@ -21,22 +16,25 @@ function HomePage() {
         viewAllLink="/airing"
         animeList={currentlyAiring.data?.data}
         isLoading={currentlyAiring.isLoading}
+        mediaType="anime"
       />
       <AnimeSection
         title="Top Anime"
         icon={Flame}
         subtitle="All-time favorites and classics"
-        viewAllLink="/anime"
+        viewAllLink="/trending/anime"
         animeList={topAnime.data?.data}
         isLoading={topAnime.isLoading}
+        mediaType="anime"
       />
       <AnimeSection
         title="Top Manga"
         icon={BookOpen}
         subtitle="Masterpieces in print"
-        viewAllLink="/manga"
+        viewAllLink="/trending/manga"
         animeList={topManga.data?.data}
         isLoading={topManga.isLoading}
+        mediaType="manga"
       />
     </div>
   );
